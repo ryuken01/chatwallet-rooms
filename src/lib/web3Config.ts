@@ -1,5 +1,5 @@
 
-import { createWeb3Modal, defaultWagmiConfig } from '@web3modal/wagmi'
+import { createWeb3Modal } from '@web3modal/wagmi'
 import { mainnet } from 'viem/chains'
 import { configureChains, createConfig } from 'wagmi'
 import { publicProvider } from 'wagmi/providers/public'
