@@ -12,12 +12,15 @@ import NotFound from "./pages/NotFound"
 
 const queryClient = new QueryClient()
 
-// Initialize Web3Modal
+// Initialize Web3Modal with all required options
 createWeb3Modal({
   wagmiConfig: config,
   projectId,
   chains,
-  defaultChain: chains[0]
+  themeMode: 'dark',
+  themeVariables: {
+    '--w3m-font-family': 'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont',
+  }
 })
 
 const App = () => (
