@@ -1,10 +1,9 @@
 
-import { createWeb3Modal } from '@web3modal/wagmi'
 import { mainnet } from 'viem/chains'
 import { configureChains, createConfig } from 'wagmi'
 import { publicProvider } from 'wagmi/providers/public'
 
-const projectId = 'YOUR_WALLETCONNECT_PROJECT_ID'
+export const projectId = 'YOUR_WALLETCONNECT_PROJECT_ID'
 
 const metadata = {
   name: 'ChatWallet Rooms',
@@ -21,13 +20,6 @@ const { chains, publicClient } = configureChains(
 export const config = createConfig({
   autoConnect: true,
   publicClient,
-})
-
-createWeb3Modal({
-  wagmiConfig: config,
-  projectId,
-  chains,
-  defaultChain: mainnet
 })
 
 export { chains }

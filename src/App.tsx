@@ -5,11 +5,20 @@ import { TooltipProvider } from "@/components/ui/tooltip"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { WagmiConfig } from 'wagmi'
-import { config } from './lib/web3Config'
+import { createWeb3Modal } from '@web3modal/wagmi'
+import { config, projectId, chains } from './lib/web3Config'
 import Index from "./pages/Index"
 import NotFound from "./pages/NotFound"
 
 const queryClient = new QueryClient()
+
+// Initialize Web3Modal
+createWeb3Modal({
+  wagmiConfig: config,
+  projectId,
+  chains,
+  defaultChain: chains[0]
+})
 
 const App = () => (
   <WagmiConfig config={config}>
