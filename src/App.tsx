@@ -6,7 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { WagmiConfig } from 'wagmi'
 import { createWeb3Modal } from '@web3modal/wagmi'
-import { config, projectId, chains } from './lib/web3Config'
+import { config, projectId, chains, metadata } from './lib/web3Config'
 import Index from "./pages/Index"
 import NotFound from "./pages/NotFound"
 
@@ -20,7 +20,8 @@ createWeb3Modal({
   themeMode: 'dark',
   themeVariables: {
     '--w3m-font-family': 'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont',
-  }
+  },
+  metadata
 })
 
 const App = () => (

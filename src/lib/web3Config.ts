@@ -1,6 +1,7 @@
 
 import { mainnet } from 'viem/chains'
-import { defaultWagmiConfig } from '@web3modal/wagmi'
+import { createConfig, configureChains } from 'wagmi'
+import { publicProvider } from 'wagmi/providers/public'
 
 export const projectId = 'YOUR_WALLETCONNECT_PROJECT_ID'
 
@@ -11,12 +12,14 @@ const metadata = {
   icons: ['https://avatars.githubusercontent.com/u/37784886']
 }
 
-const chains = [mainnet]
+const { chains, publicClient } = configureChains(
+  [mainnet],
+  [publicProvider()]
+)
 
-export const config = defaultWagmiConfig({
-  chains,
-  projectId,
-  metadata
+export const config = createConfig({
+  autoConnect: true,
+  publicClient
 })
 
-export { chains }
+export { chains, metadata }
